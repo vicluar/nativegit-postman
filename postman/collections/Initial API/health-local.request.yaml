@@ -1,0 +1,5 @@
+$kind: http-request
+name: health-local
+url: localhost:4500/health
+method: GET
+order: 2504715956092936
