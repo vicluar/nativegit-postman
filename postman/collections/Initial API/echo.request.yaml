@@ -1,5 +1,36 @@
 $kind: http-request
-name: echo
 url: https://postman-echo.com/get
 method: GET
+examples: .resources/echo.resources/examples
 order: 1773918446051
+scripts:
+  - type: afterResponse
+    code: >-
+      pm.test("Status code is 200", function () {
+        pm.response.to.have.status(200);
+      });
+
+      pm.test("Response time is less than 2000ms", function () {
+        pm.expect(pm.response.responseTime).to.be.below(2000);
+      });
+
+      pm.test("Response has a JSON body", function () {
+        pm.response.to.be.json;
+      });
+
+      pm.test("Response body has a url field equal to
+      https://postman-echo.com/get", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData.url).to.eql("https://postman-echo.com/get");
+      });
+
+      pm.test("Response body has an args object", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData.args).to.be.an("object");
+      });
+
+      pm.test("Response body has a headers object", function () {
+        var jsonData = pm.response.json();
+        pm.expect(jsonData.headers).to.be.an("object");
+      });
+    language: text/javascript
