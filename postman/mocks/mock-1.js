@@ -22,6 +22,12 @@ const server = http.createServer((req, res) => {
     return res.end(JSON.stringify({ customerId: "1234", name: "Vic", lastname: "Merchan" }));
   }
 
+       // @endpoint GET /buys
+  if (method === "GET" && url === "/buys") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    return res.end(JSON.stringify({ customerId: "1234", name: "Vic", lastname: "Merchan" }));
+  }
+
   if (pm.mock.matchRequest("REQUEST_PATH", req)) {
     return pm.mock.sendExample("EXAMPLE_PATH", res);
   }
