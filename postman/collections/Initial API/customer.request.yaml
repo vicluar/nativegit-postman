@@ -1,0 +1,5 @@
+$kind: http-request
+name: customer
+url: localhost:4500/customer
+method: GET
+order: 3146941062668302
