@@ -1,0 +1,12 @@
+$kind: llm-request
+name: New Request
+url: https://api.anthropic.com
+config:
+  model: claude-haiku-4-5-20251001
+  provider: anthropic
+settings:
+  streamResponse: true
+  topK: 40
+auth:
+  type: bearer
+order: 4228322936455277
