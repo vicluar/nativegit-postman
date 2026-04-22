@@ -1,0 +1,5 @@
+$kind: http-request
+name: claim
+url: localhost:4500/claims
+method: GET
+order: 4364555773544759
